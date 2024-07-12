@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-
 :root {
   //COLORS
   //grey
   --color-grey-950: #0d121c;
   --color-grey-900: #121926;
   --color-grey-800: #202939;
+  --color-grey-700: #4a4d55;
   --color-grey-600: #4b5565;
   --color-grey-500: #697586;
   --color-grey-400: #9aa3b2;
@@ -70,6 +69,13 @@
   --avatar-size-md: 2.5rem;
   --avatar-size-sm: 2rem;
   --avatar-size-xs: 1.5rem;
+
+  //BORDER SIZES
+  --border-circle: 50rem;
+  --border-round: 1.5rem;
+  --border-rounded: 1.25rem;
+  --border-sm: 1rem;
+  --border-xs: 0.5rem;
 }
 
 * {
@@ -79,5 +85,18 @@
   font-family: "Inter", sans-serif;
 }
 
-//imports
+// IMPORTS
+
+//components
+@import "./components/categories.scss";
+@import "./components/featured.scss";
 @import "./components/layout.scss";
+@import "./components/player.scss";
+@import "./components/playlists.scss";
+@import "./components/podcasts.scss";
+@import "./components/sidebar.scss";
+//pages
+@import "./pages/home-page.scss";
+@import "./pages/login-page.scss";
+@import "./pages/playlists-page.scss";
+@import "./pages/podcasts-page.scss";
