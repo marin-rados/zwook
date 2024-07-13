@@ -49,11 +49,11 @@
   //FONT SIZES
   //display
   --display-size-2xl: 4.5rem;
-  --display-size-xl: 4.5rem;
-  --display-size-lg: 4.5rem;
-  --display-size-md: 4.5rem;
-  --display-size-sm: 4.5rem;
-  --display-size-xs: 4.5rem;
+  --display-size-xl: 3.75rem;
+  --display-size-lg: 3rem;
+  --display-size-md: 2.25rem;
+  --display-size-sm: 1.875rem;
+  --display-size-xs: 1.5rem;
 
   --text-size-2xl: 1.25rem;
   --text-size-xl: 1.125rem;
@@ -98,6 +98,7 @@
 @import "./components/sidebar.scss";
 
 //pages
+@import "./pages/content-layout.scss";
 @import "./pages/home-page.scss";
 @import "./pages/login-page.scss";
 @import "./pages/playlists-page.scss";

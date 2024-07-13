@@ -1,11 +1,13 @@
-import { ReactNode } from "react";
+import ContentLayout from "../pages/content-layout";
+import Sidebar from "./sidebar";
 
-type Props = {
-  children: ReactNode;
-};
-
-const Layout = ({ children }: Props) => {
-  return <div className="layout">{children}</div>;
+const Layout = () => {
+  return (
+    <div className="layout">
+      <Sidebar />
+      <ContentLayout />
+    </div>
+  );
 };
 
 export default Layout;
