@@ -34,6 +34,11 @@
   background-color: var(--color-dark-blue-200);
   padding: 0.75rem 0.75rem 0.5rem 0.75rem;
   border-radius: var(--border-xs);
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 @mixin images {
