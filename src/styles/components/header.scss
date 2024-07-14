@@ -23,6 +23,10 @@
     &__input {
       background-color: var(--color-dark-blue-200);
       border: none;
+      &:focus {
+        color: var(--color-grey-25);
+        outline: none;
+      }
       &::placeholder {
         color: var(--color-grey-400);
       }
