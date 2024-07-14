@@ -1,3 +1,5 @@
+//SIDEBAR DATA
+
 //dark mode icons
 import homeIconDark from "../assets/icons/sidebar/darkMode/home.svg";
 import devicesIconDark from "../assets/icons/sidebar/darkMode/devices.svg";
@@ -93,5 +95,53 @@ export const sidebarData = [
     href: "podcasts",
     notiffication: true,
     notifficationText: "Add New",
+  },
+];
+
+// FEATURED DATA
+
+//images
+
+import guitarMan from "../assets/images/featured-images/guitar-man.jfif";
+import kissDorka from "../assets/images/featured-images/kiss-dorka.jfif";
+import lunaDova from "../assets/images/featured-images/luna-dova.jfif";
+import maxSterling from "../assets/images/featured-images/max-sterling.jfif";
+import orionStarlight from "../assets/images/featured-images/orion-starlight.jfif";
+import phantomEchos from "../assets/images/featured-images/phantom-echos.jfif";
+import rapper from "../assets/images/featured-images/rapper.jfif";
+import singer from "../assets/images/featured-images/singer.jfif";
+
+export const featuredData = [
+  {
+    img: singer,
+    name: "Kiss Dorka",
+  },
+  {
+    img: lunaDova,
+    name: "Luna Dova",
+  },
+  {
+    img: rapper,
+    name: "Phantom Echos",
+  },
+  {
+    img: guitarMan,
+    name: "Kiss Dorka",
+  },
+  {
+    img: maxSterling,
+    name: "Max Sterling",
+  },
+  {
+    img: orionStarlight,
+    name: "Orion Starlight",
+  },
+  {
+    img: kissDorka,
+    name: "Kiss Dorka",
+  },
+  {
+    img: phantomEchos,
+    name: "Phantom Echos",
   },
 ];

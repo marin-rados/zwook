@@ -1,0 +1,46 @@
+@import "../mixins/mixins";
+
+.featured {
+  display: flex;
+  flex-direction: column;
+  width: 97rem;
+  height: 16.375;
+}
+
+.featured-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  &__title {
+    @include titles;
+  }
+  &__options {
+    &__button {
+      @include buttons;
+      margin-right: 0.5rem;
+      &:last-child {
+        margin-right: 0.25rem;
+      }
+    }
+  }
+}
+
+.featured-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__card {
+    @include card;
+    &__image {
+      @include images;
+    }
+    &__title {
+      @include labels;
+    }
+  }
+}
+
+.active-button {
+  background-color: var(--color-grey-25);
+  color: var(--color-grey-900);
+}
