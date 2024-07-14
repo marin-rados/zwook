@@ -46,8 +46,16 @@ const Podcasts = () => {
             >
               <div className="card__status">
                 <div className="card__status__view">
-                  <div className="card__status__view__circle"></div>
-                  <p className="card__status__view__text">
+                  <div
+                    className={`card__status__view__circle ${
+                      podcast.status ? "" : "offline-circle"
+                    }`}
+                  ></div>
+                  <p
+                    className={`card__status__view__text ${
+                      podcast.status ? "" : "offline-text"
+                    }`}
+                  >
                     {podcast.status ? "Online" : "Offline"}
                   </p>
                 </div>
