@@ -1,4 +1,5 @@
 import Header from "../components/header";
+import Player from "../components/player";
 import HomePage from "./home-page";
 
 const ContentLayout = () => {
@@ -9,6 +10,7 @@ const ContentLayout = () => {
         <div className="displayed-content">
           <HomePage />
         </div>
+        <Player />
       </div>
     </>
   );

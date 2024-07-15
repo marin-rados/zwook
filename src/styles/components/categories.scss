@@ -2,6 +2,7 @@
 
 .categories {
   @include container;
+  @include gap;
 }
 .categories-header {
   @include header;

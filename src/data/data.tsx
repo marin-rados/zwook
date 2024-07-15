@@ -188,3 +188,35 @@ export const categoriesdData = [
     name: "Monday Jazz",
   },
 ];
+
+//PLAYER DATA
+//icons
+import nextButton from "../assets/icons/music-control/next.svg";
+import prevButton from "../assets/icons/music-control/prev.svg";
+import play from "../assets/icons/music-control/play.svg";
+import repeat from "../assets/icons/music-control/repeat.svg";
+import shuffle from "../assets/icons/music-control/shuffle.svg";
+
+export const playerIconsData = [
+  {
+    img: shuffle,
+    playIcon: false,
+  },
+  {
+    img: prevButton,
+    playIcon: false,
+  },
+  {
+    img: play,
+    playIcon: true,
+  },
+  {
+    img: nextButton,
+    playIcon: false,
+  },
+
+  {
+    img: repeat,
+    playIcon: false,
+  },
+];

@@ -1,11 +1,9 @@
 @import "../mixins/mixins";
 
 .podcasts {
-  display: flex;
-  flex-direction: column;
+  @include container;
   justify-content: space-between;
-  width: 97rem;
-  height: 15.25rem;
+  @include gap;
   &__header {
     display: flex;
     width: 100%;

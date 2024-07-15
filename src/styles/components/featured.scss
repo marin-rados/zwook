@@ -2,6 +2,7 @@
 
 .featured {
   @include container;
+  @include gap;
 }
 
 .featured-header {

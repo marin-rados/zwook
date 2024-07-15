@@ -26,19 +26,20 @@
   line-height: 1.25rem;
 }
 
+@mixin gap {
+  gap: 1.25rem;
+}
 // Featured and categories styling
 
 @mixin container {
   display: flex;
   flex-direction: column;
   width: 97rem;
-  height: 16.375;
 }
 
 @mixin header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
 }
 
 @mixin content {
@@ -65,4 +66,12 @@
   width: 9.375rem;
   object-fit: cover;
   border-radius: var(--border-xs);
+}
+
+@mixin interact {
+  cursor: pointer;
+  transition: 100ms ease-in-out;
+  &:hover {
+    opacity: 0.5;
+  }
 }
