@@ -7,8 +7,9 @@
   background-color: var(--color-dark-blue-200);
   color: var(--color-grey-300);
   width: 18.5rem;
-  height: 100vh;
   padding: 1.5rem;
+  flex-shrink: 0;
+  overflow: hidden;
   &__logo {
     display: flex;
     align-items: center;

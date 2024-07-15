@@ -1,16 +1,11 @@
 @import "../mixins/mixins";
 
 .featured {
-  display: flex;
-  flex-direction: column;
-  width: 97rem;
-  height: 16.375;
+  @include container;
 }
 
 .featured-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  @include header;
   &__title {
     @include titles;
   }
@@ -26,9 +21,7 @@
 }
 
 .featured-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include content;
   &__card {
     @include card;
     &__image {

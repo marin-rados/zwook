@@ -145,3 +145,46 @@ export const featuredData = [
     name: "Phantom Echos",
   },
 ];
+
+//CATEGORIES DATA
+
+//images
+import beachGuitar from "../assets/images/categories-images/beach-guitar.jfif";
+import rockMusician from "../assets/images/categories-images/rock-musician.jfif";
+import saxophoneGuy from "../assets/images/categories-images/saxophone-guy.jfif";
+import streetMusician from "../assets/images/categories-images/street-musician.jfif";
+
+export const categoriesdData = [
+  {
+    img: streetMusician,
+    name: "Folk",
+  },
+  {
+    img: beachGuitar,
+    name: "Blues",
+  },
+  {
+    img: saxophoneGuy,
+    name: "Jazz Classics",
+  },
+  {
+    img: rockMusician,
+    name: "Stadium Rock",
+  },
+  {
+    img: streetMusician,
+    name: "Folk & Acoustic",
+  },
+  {
+    img: guitarMan,
+    name: "Country",
+  },
+  {
+    img: beachGuitar,
+    name: "Acoustic Guitar Hits",
+  },
+  {
+    img: saxophoneGuy,
+    name: "Monday Jazz",
+  },
+];

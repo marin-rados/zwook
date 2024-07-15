@@ -1,0 +1,27 @@
+@import "../mixins/mixins";
+
+.categories {
+  @include container;
+}
+.categories-header {
+  @include header;
+  &__title {
+    @include titles;
+  }
+  &__button {
+    @include buttons;
+  }
+}
+
+.categories-content {
+  @include content;
+  &__card {
+    @include card;
+    &__image {
+      @include images;
+    }
+    &__title {
+      @include labels;
+    }
+  }
+}

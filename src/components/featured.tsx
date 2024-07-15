@@ -41,9 +41,9 @@ const Featured = () => {
         </div>
       </div>
       <div className="featured-content">
-        {featuredData.map((featured) => {
+        {featuredData.map((featured, index) => {
           return (
-            <div className="featured-content__card">
+            <div key={index} className="featured-content__card">
               <img
                 className="featured-content__card__image"
                 src={featured.img}

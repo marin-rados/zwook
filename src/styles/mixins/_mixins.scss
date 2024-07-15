@@ -28,6 +28,25 @@
 
 // Featured and categories styling
 
+@mixin container {
+  display: flex;
+  flex-direction: column;
+  width: 97rem;
+  height: 16.375;
+}
+
+@mixin header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+@mixin content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @mixin card {
   width: 10.875rem;
   height: 12.375rem;
