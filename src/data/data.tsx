@@ -27,7 +27,7 @@ export const sidebarData = [
     name: "Home",
     iconDark: homeIconDark,
     iconLight: homeIconLight,
-    href: "home",
+    href: "/",
     notiffication: false,
   },
   {
@@ -35,7 +35,7 @@ export const sidebarData = [
     name: "Devices",
     iconDark: devicesIconDark,
     iconLight: devicesIconLight,
-    href: "home",
+    href: "#",
     notiffication: true,
     notifficationText: 10,
   },
@@ -44,7 +44,7 @@ export const sidebarData = [
     name: "Subscriptions",
     iconDark: subscriptionsIconDark,
     iconLight: subscriptionsIconLight,
-    href: "home",
+    href: "#",
     notiffication: false,
   },
   {
@@ -52,7 +52,7 @@ export const sidebarData = [
     name: "Settings",
     iconDark: settingsIconDark,
     iconLight: settingsIconLight,
-    href: "home",
+    href: "#",
     notiffication: false,
   },
   {
@@ -60,7 +60,7 @@ export const sidebarData = [
     name: "Playlists",
     iconDark: playlistsIconDark,
     iconLight: playlistsIconLight,
-    href: "playlists",
+    href: "/playlist",
     notiffication: false,
   },
   {
@@ -68,7 +68,7 @@ export const sidebarData = [
     name: "Albums",
     iconDark: albumsIconDark,
     iconLight: albumsIconLight,
-    href: "home",
+    href: "#",
     notiffication: false,
   },
   {
@@ -76,7 +76,7 @@ export const sidebarData = [
     name: "Artists",
     iconDark: artistsIconDark,
     iconLight: artistsIconLight,
-    href: "home",
+    href: "#",
     notiffication: false,
   },
   {
@@ -84,7 +84,7 @@ export const sidebarData = [
     name: "Stations",
     iconDark: stationsIconDark,
     iconLight: stationsIconLight,
-    href: "home",
+    href: "#",
     notiffication: false,
   },
   {

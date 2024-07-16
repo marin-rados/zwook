@@ -2,11 +2,13 @@ import { sidebarData } from "../data/data";
 import logo from "../assets/icons/sidebar/logo.svg";
 import logoTitle from "../assets/icons/sidebar/logo-title.svg";
 import star from "../assets/icons/sidebar/star-circle.svg";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   return (
     <div className="sidebar">
-      <div className="sidebar__logo">
+      <div onClick={() => navigate("/")} className="sidebar__logo">
         <img src={logo} alt="Zwook Logo Image" className="sidebar__logo__img" />
         <img
           src={logoTitle}
@@ -19,7 +21,10 @@ const Sidebar = () => {
         {sidebarData.map((navigation) => {
           return (
             <div key={navigation.id} className="navigation__items">
-              <div className="navigation__items__main">
+              <div
+                onClick={() => navigate(`${navigation.href}`)}
+                className="navigation__items__main"
+              >
                 <img
                   className="navigation__items__main__icon"
                   src={navigation.iconDark}
