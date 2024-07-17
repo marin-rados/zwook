@@ -37,7 +37,10 @@ const Sidebar = () => {
               </div>
               {navigation.notiffication && (
                 <>
-                  <div className="navigation__items__optional">
+                  <div
+                    onClick={() => navigate(`${navigation.href}`)}
+                    className="navigation__items__optional"
+                  >
                     <p className="navigation__items__optional__text">
                       {navigation.notifficationText}
                     </p>

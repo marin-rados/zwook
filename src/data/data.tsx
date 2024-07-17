@@ -91,7 +91,7 @@ export const sidebarData = [
     name: "Podcasts",
     iconDark: podcastsIconDark,
     iconLight: podcastsIconLight,
-    href: "podcasts",
+    href: "podcast/add",
     notiffication: true,
     notifficationText: "Add New",
   },

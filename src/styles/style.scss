@@ -76,6 +76,9 @@
   --border-rounded: 1.25rem;
   --border-sm: 1rem;
   --border-xs: 0.5rem;
+
+  //LINE HEIGHT
+  --line-height-md: 1.25rem;
 }
 
 * {
@@ -98,8 +101,8 @@
 @import "./components/sidebar.scss";
 
 //pages
+@import "./pages/add-podcast.scss";
 @import "./pages/content-layout.scss";
 @import "./pages/home-page.scss";
 @import "./pages/login-page.scss";
 @import "./pages/playlists-page.scss";
-@import "./pages/podcasts-page.scss";
