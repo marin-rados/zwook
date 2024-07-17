@@ -41,6 +41,7 @@ const Podcasts = () => {
         {data.map((podcast) => {
           return (
             <div
+              key={podcast.title}
               style={{ backgroundImage: `url(${podcast.img})` }}
               className="card"
             >

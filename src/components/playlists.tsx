@@ -1,30 +1,51 @@
+import { useNavigate } from "react-router-dom";
 import arrowCornerRight from "../assets/icons/playlists/arrow-corner-right.svg";
-import midnightMelodies from "../assets/images/abstract-images/midnight.jfif";
-import virgos from "../assets/images/abstract-images/virgos.jfif";
+import { playlistPageData } from "../data/data";
 
 const Playlists = () => {
+  const navigate = useNavigate();
+  const goTo = (playlistId: string) => {
+    navigate(playlistId);
+  };
+
   return (
     <div className="playlists">
-      <a href="/playlist">
-        <div
-          style={{ backgroundImage: `url(${midnightMelodies})` }}
-          className="playlists__playlist"
-        >
-          <div className="playlist-info">
-            <img
-              src={arrowCornerRight}
-              alt="Arrow Icon"
-              className="playlist-info__icon"
-            />
-            <p className="playlist-info__title">Midnight Melodies</p>
-            <p className="playlist-info__description">
-              New release "Impressions" coming June,16
-            </p>
+      {playlistPageData.map((playlist) => {
+        return (
+          <div
+            key={playlist.id}
+            onClick={() => goTo(`playlist/${playlist.id}`)}
+            style={{ backgroundImage: `url(${playlist.playlistImg})` }}
+            className="playlists__playlist"
+          >
+            <div className="playlist-info">
+              <img
+                src={arrowCornerRight}
+                alt="Arrow Icon"
+                className="playlist-info__icon"
+              />
+              <p className="playlist-info__title">{playlist.name}</p>
+              <p className="playlist-info__description">
+                {`New release "Impressions" coming ${playlist.date}`}
+              </p>
+            </div>
           </div>
-        </div>
-      </a>
+        );
+      })}
+    </div>
+  );
+};
+
+export default Playlists;
+
+{
+  /* <div className="playlists">
+  {playlistPageData.map((playlist) => {
+    return (
       <div
-        style={{ backgroundImage: `url(${virgos})` }}
+        key={playlist.id}
+        onClick={() => goTo("/playlist")}
+        style={{ backgroundImage: `url(${playlist.playlistImg})` }}
         className="playlists__playlist"
       >
         <div className="playlist-info">
@@ -33,14 +54,13 @@ const Playlists = () => {
             alt="Arrow Icon"
             className="playlist-info__icon"
           />
-          <p className="playlist-info__title">Virgos</p>
+          <p className="playlist-info__title">{playlist.name}</p>
           <p className="playlist-info__description">
-            New release "Impressions" coming July,29
+            {`New release "Impressions" coming ${playlist.date}`}
           </p>
         </div>
       </div>
-    </div>
-  );
-};
-
-export default Playlists;
+    );
+  })}
+</div>; */
+}

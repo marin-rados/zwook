@@ -1,5 +1,3 @@
-//SIDEBAR DATA
-
 //dark mode icons
 import homeIconDark from "../assets/icons/sidebar/darkMode/home.svg";
 import devicesIconDark from "../assets/icons/sidebar/darkMode/devices.svg";
@@ -21,6 +19,7 @@ import artistsIconLight from "../assets/icons/sidebar/lightMode/artists.svg";
 import stationsIconLight from "../assets/icons/sidebar/lightMode/stations.svg";
 import podcastsIconLight from "../assets/icons/sidebar/lightMode/podcasts.svg";
 
+//SIDEBAR DATA
 export const sidebarData = [
   {
     id: 1,
@@ -60,7 +59,7 @@ export const sidebarData = [
     name: "Playlists",
     iconDark: playlistsIconDark,
     iconLight: playlistsIconLight,
-    href: "/playlist",
+    href: "/playlist/midnight-melodies",
     notiffication: false,
   },
   {
@@ -343,5 +342,26 @@ export const playlistSongsData = [
     songName: "Comfort in Chaos",
     artistName: "John Sunset",
     album: "Comfort in Chaos",
+  },
+];
+
+//PLAYLIST PAGE DATA
+import midnight from "../assets/images/abstract-images/midnight.jfif";
+import virgos from "../assets/images/abstract-images/virgos.jfif";
+
+export const playlistPageData = [
+  {
+    id: "midnight-melodies",
+    name: "Midnight Melodies",
+    playlistImg: midnight,
+    date: "June,16",
+    featuredImg: guitarMan,
+  },
+  {
+    id: "virgos",
+    name: "Virgos",
+    playlistImg: virgos,
+    date: "July,23",
+    featuredImg: beachGuitar,
   },
 ];

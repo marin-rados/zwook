@@ -1,29 +1,49 @@
-import { playlistSongsData } from "../data/data";
-import midnight from "../assets/images/abstract-images/midnight.jfif";
-import guitarMan from "../assets/images/featured-images/guitar-man.jfif";
+import { playlistPageData, playlistSongsData } from "../data/data";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { PlaylistDataType } from "../types/global";
 
 const PlaylistPage = () => {
+  const { playlistId } = useParams();
+  const [data, setData] = useState<PlaylistDataType>();
+
+  const getPlaylistInfo = () => {
+    const playlist = playlistPageData.find((playlist) => {
+      return playlist.id === playlistId;
+    });
+    setData(playlist);
+  };
+
+  useEffect(() => {
+    getPlaylistInfo();
+  }, []);
+
   return (
     <div className="playlist-page">
-      <div
-        className="playlist-page-header"
-        style={{ backgroundImage: `url(${midnight})` }}
-      >
-        <img
-          src={guitarMan}
-          alt="Image of an artist"
-          className="playlist-page-header__image"
-        />
-        <div className="playlist-page-header__description">
-          <p className="playlist-page-header__description__info">Playlist</p>
-          <p className="playlist-page-header__description__title">
-            Midnight Melodies
-          </p>
-          <p className="playlist-page-header__description__info">
-            New release "impressions" coming June,16
-          </p>
+      {data ? (
+        <div
+          className="playlist-page-header"
+          style={{ backgroundImage: `url(${data.playlistImg})` }}
+        >
+          <img
+            src={data.featuredImg}
+            alt="Image of an artist"
+            className="playlist-page-header__image"
+          />
+          <div className="playlist-page-header__description">
+            <p className="playlist-page-header__description__info">Playlist</p>
+            <p className="playlist-page-header__description__title">
+              {data.name}
+            </p>
+            <p className="playlist-page-header__description__info">
+              {`New release "Impressions" coming ${data.date}`}
+            </p>
+          </div>
         </div>
-      </div>
+      ) : (
+        <p>error</p>
+      )}
+
       <table className="tracks">
         <thead className="tracks__header">
           <tr className="tracks__header__tags">

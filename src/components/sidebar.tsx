@@ -20,11 +20,12 @@ const Sidebar = () => {
       <nav className="navigation">
         {sidebarData.map((navigation) => {
           return (
-            <div key={navigation.id} className="navigation__items">
-              <div
-                onClick={() => navigate(`${navigation.href}`)}
-                className="navigation__items__main"
-              >
+            <div
+              onClick={() => navigate(`${navigation.href}`)}
+              key={navigation.id}
+              className="navigation__items"
+            >
+              <div className="navigation__items__main">
                 <img
                   className="navigation__items__main__icon"
                   src={navigation.iconDark}
