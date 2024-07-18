@@ -1,11 +1,21 @@
 import { create } from "zustand";
 
-type ColorModeStore = {
+type ColorModeStoreType = {
   lightMode: boolean;
   setLightMode: (lightMode: boolean) => void;
 };
 
-export const useColorModeStore = create<ColorModeStore>((set) => ({
+type LoginStoreType = {
+  isLogged: boolean;
+  setIsLogged: (isLogged: boolean) => void;
+};
+
+export const useColorModeStore = create<ColorModeStoreType>((set) => ({
   lightMode: false,
   setLightMode: (lightMode: boolean) => set({ lightMode }),
+}));
+
+export const useLoginStore = create<LoginStoreType>((set) => ({
+  isLogged: true,
+  setIsLogged: (isLogged: boolean) => set({ isLogged }),
 }));
