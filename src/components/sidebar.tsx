@@ -7,7 +7,7 @@ import { useColorModeStore } from "../store/store";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const { lightMode, setLightMode } = useColorModeStore();
+  const { lightMode } = useColorModeStore();
 
   return (
     <div className="sidebar">

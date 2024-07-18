@@ -90,3 +90,19 @@
     line-height: 1rem;
   }
 }
+
+.toggle-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  width: 2.25rem;
+  padding: 0.25rem;
+  border-radius: var(--border-circle);
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 250ms ease;
+  &:hover {
+    background-color: var(--color-dark-blue-400);
+  }
+}

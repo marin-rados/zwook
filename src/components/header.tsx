@@ -3,8 +3,12 @@ import activitiesIcon from "../assets/icons/header/graph.svg";
 import searchIcon from "../assets/icons/header/search-icon.svg";
 import arrowDown from "../assets/icons/arrow-down.svg";
 import AlbertFlores from "../assets/images/avatars/Albert-Flores.jfif";
+import { useColorModeStore } from "../store/store";
+import darkModeIcon from "../assets/icons/light-mode/dark.svg";
+import lightModeIcon from "../assets/icons/light-mode/light.svg";
 
 const Header = () => {
+  const { lightMode, setLightMode } = useColorModeStore();
   return (
     <div className="header">
       <div className="header__search">
@@ -21,6 +25,14 @@ const Header = () => {
       </div>
 
       <div className="account">
+        <div onClick={() => setLightMode(!lightMode)} className="toggle-mode">
+          <img
+            src={lightMode ? darkModeIcon : lightModeIcon}
+            alt="Dark/Light mode icon"
+            className="toggle-mode__img"
+          />
+        </div>
+        <img src="" alt="" />
         <img
           src={activitiesIcon}
           alt="Activities icon"
