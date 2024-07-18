@@ -3,9 +3,12 @@ import logo from "../assets/icons/sidebar/logo.svg";
 import logoTitle from "../assets/icons/sidebar/logo-title.svg";
 import star from "../assets/icons/sidebar/star-circle.svg";
 import { useNavigate } from "react-router-dom";
+import { useColorModeStore } from "../store/store";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const { lightMode, setLightMode } = useColorModeStore();
+
   return (
     <div className="sidebar">
       <div onClick={() => navigate("/")} className="sidebar__logo">
