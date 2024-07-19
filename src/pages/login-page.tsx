@@ -4,7 +4,7 @@ import logoTitle from "../assets/icons/sidebar/logo-title.svg";
 import emailIcon from "../assets/icons/login/email.svg";
 import googleIcon from "../assets/icons/login/google.svg";
 import lockIcon from "../assets/icons/login/lock.svg";
-import { useColorModeStore } from "../store/store";
+import { useColorModeStore, useLoginStore } from "../store/store";
 import sitePreviewLight from "../assets/images/login/site-preview-lightMode.png";
 import darkIcon from "../assets/icons/light-mode/dark.svg";
 import lightIcon from "../assets/icons/light-mode/light.svg";
@@ -12,6 +12,7 @@ import logoTitleLight from "../assets/icons/sidebar/lightMode/logo-title-light.s
 
 const LoginPage = () => {
   const { lightMode, setLightMode } = useColorModeStore();
+  const { setIsLogged } = useLoginStore();
   return (
     <div className="login-page">
       <div className={`login ${lightMode ? "login-light" : ""}`}>
@@ -79,7 +80,9 @@ const LoginPage = () => {
               className="inputs__input"
             />
           </div>
-          <button className="login__button">Login</button>
+          <button onClick={() => setIsLogged(true)} className="login__button">
+            Login
+          </button>
           <div className="login-or">
             <hr className="login-or__hr" />
             <p className="login-or__text">or</p>

@@ -11,7 +11,11 @@ const ContentLayout = () => {
         className={`content-layout ${lightMode ? "content-layout-light" : ""}`}
       >
         <Header />
-        <div className="displayed-content">
+        <div
+          className={
+            lightMode ? "displayed-content-light" : "displayed-content"
+          }
+        >
           <Outlet />
         </div>
         <Player />
