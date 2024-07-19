@@ -38,3 +38,16 @@
   background-color: var(--color-grey-25);
   color: var(--color-grey-900);
 }
+
+//LIGHT MODE
+
+.featured-header-title-light {
+  color: var(--color-grey-950);
+}
+
+.featured-content-card-light {
+  background-color: var(--color-grey-25);
+  &__title {
+    color: var(--color-grey-950);
+  }
+}

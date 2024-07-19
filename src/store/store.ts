@@ -16,6 +16,6 @@ export const useColorModeStore = create<ColorModeStoreType>((set) => ({
 }));
 
 export const useLoginStore = create<LoginStoreType>((set) => ({
-  isLogged: true,
+  isLogged: false,
   setIsLogged: (isLogged: boolean) => set({ isLogged }),
 }));

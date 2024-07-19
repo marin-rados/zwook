@@ -75,3 +75,11 @@
     opacity: 0.5;
   }
 }
+
+//LIGHT MODE
+
+@mixin buttons-light {
+  border: 1px solid var(--color-grey-300);
+  background-color: var(--color-grey-100);
+  color: var(--color-grey-950);
+}

@@ -97,6 +97,7 @@
     }
     &__title {
       color: var(--color-grey-100);
+      font-weight: var(--font-weight-medium);
       line-height: 1.25rem;
     }
   }
@@ -132,6 +133,7 @@
     &__dismiss {
       color: var(--color-grey-100);
       margin-right: 1rem;
+      font-weight: var(--font-weight-medium);
       &:hover {
         cursor: pointer;
       }
@@ -143,4 +145,45 @@
       }
     }
   }
+}
+
+//LIGHT MODE
+.sidebar-light {
+  background-color: var(--color-grey-25);
+  border-right: 1px solid var(--color-grey-100);
+}
+
+.navigation-items-light {
+  &:hover {
+    background-color: var(--color-grey-200);
+  }
+  &__main {
+    &__label {
+      color: var(--color-grey-600);
+      &:hover {
+        color: var(--color-grey-950);
+      }
+    }
+  }
+}
+
+.premium-light {
+  border: 1px solid var(--color-grey-300);
+  &__update {
+    &__title {
+      color: var(--color-grey-950);
+    }
+  }
+}
+
+.premium-description-text-light {
+  color: var(--color-grey-500);
+}
+
+.premium-progress-light {
+  background-color: var(--color-grey-200);
+}
+
+.premium-options-dismiss-light {
+  color: var(--color-grey-950);
 }

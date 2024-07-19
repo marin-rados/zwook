@@ -4,12 +4,30 @@ import logoTitle from "../assets/icons/sidebar/logo-title.svg";
 import emailIcon from "../assets/icons/login/email.svg";
 import googleIcon from "../assets/icons/login/google.svg";
 import lockIcon from "../assets/icons/login/lock.svg";
+import { useColorModeStore } from "../store/store";
+import sitePreviewLight from "../assets/images/login/site-preview-lightMode.png";
+import darkIcon from "../assets/icons/light-mode/dark.svg";
+import lightIcon from "../assets/icons/light-mode/light.svg";
+import logoTitleLight from "../assets/icons/sidebar/lightMode/logo-title-light.svg";
 
 const LoginPage = () => {
+  const { lightMode, setLightMode } = useColorModeStore();
   return (
     <div className="login-page">
-      <div className="login">
-        <form className="login-form">
+      <div className={`login ${lightMode ? "login-light" : ""}`}>
+        <div
+          onClick={() => {
+            setLightMode(!lightMode);
+          }}
+          className="login-toggle-mode"
+        >
+          <img
+            src={lightMode ? darkIcon : lightIcon}
+            alt="Light/Dark mode icon"
+          />
+        </div>
+
+        <form className={`login-form ${lightMode ? "login-form-light" : ""}`}>
           <div className="welcome-header">
             <img
               src={logo}
@@ -17,19 +35,35 @@ const LoginPage = () => {
               className="welcome-header__logo"
             />
             <img
-              src={logoTitle}
+              src={lightMode ? logoTitleLight : logoTitle}
               alt="Zwook Title"
               className="welcome-header__title"
             />
           </div>
           <div className="welcome">
-            <h4 className="welcome__title">Welcome Back</h4>
-            <p className="welcome__message">
+            <h4
+              className={`welcome__title ${
+                lightMode ? "welcome-title-light" : ""
+              }`}
+            >
+              Welcome Back
+            </h4>
+            <p
+              className={`welcome__message ${
+                lightMode ? "welcome-message-light" : ""
+              }`}
+            >
               Don't have an account yet?{" "}
-              <span className="welcome__message__signup">Sign Up</span>
+              <span
+                className={`welcome__message__signup ${
+                  lightMode ? "welcome-message-light__signup" : ""
+                }`}
+              >
+                Sign Up
+              </span>
             </p>
           </div>
-          <div className="inputs">
+          <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
             <img src={emailIcon} alt="" className="inputs__img" />
             <input
               type="email"
@@ -37,7 +71,7 @@ const LoginPage = () => {
               className="inputs__input"
             />
           </div>
-          <div className="inputs">
+          <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
             <img src={lockIcon} alt="" className="inputs__img" />
             <input
               type="password"
@@ -66,7 +100,9 @@ const LoginPage = () => {
 
       <div
         className="page-preview"
-        style={{ backgroundImage: `url(${sitePreview})` }}
+        style={{
+          backgroundImage: `url(${lightMode ? sitePreviewLight : sitePreview})`,
+        }}
       ></div>
     </div>
   );

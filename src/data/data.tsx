@@ -195,27 +195,37 @@ import prevButton from "../assets/icons/music-control/prev.svg";
 import play from "../assets/icons/music-control/play.svg";
 import repeat from "../assets/icons/music-control/repeat.svg";
 import shuffle from "../assets/icons/music-control/shuffle.svg";
+import nextButtonLight from "../assets/icons/music-control/light-mode/next-lightMode.svg";
+import prevButtonLight from "../assets/icons/music-control/light-mode/prev-lightMode.svg";
+import playLight from "../assets/icons/music-control/light-mode/play-lightMode.svg";
+import repeatLight from "../assets/icons/music-control/light-mode/repeat-lightMode.svg";
+import shuffleLight from "../assets/icons/music-control/light-mode/shuffle-lightMode.svg";
 
 export const playerIconsData = [
   {
     img: shuffle,
+    lightModeImg: shuffleLight,
     playIcon: false,
   },
   {
     img: prevButton,
+    lightModeImg: prevButtonLight,
     playIcon: false,
   },
   {
     img: play,
+    lightModeImg: playLight,
     playIcon: true,
   },
   {
     img: nextButton,
+    lightModeImg: nextButtonLight,
     playIcon: false,
   },
 
   {
     img: repeat,
+    lightModeImg: repeatLight,
     playIcon: false,
   },
 ];

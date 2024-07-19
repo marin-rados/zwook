@@ -108,3 +108,39 @@
 .play {
   height: 2rem;
 }
+
+//LIGHT MODE
+
+.player-light {
+  background-color: var(--color-grey-25);
+  border-top: 1px solid var(--color-grey-300);
+}
+
+.artist-image-light {
+  border: 1px solid var(--color-grey-300);
+}
+
+.artist-info-song-light {
+  color: var(--color-grey-950);
+}
+.artist-info-name-light {
+  color: var(--color-grey-500);
+}
+
+.controls-length-progress-light {
+  background-color: var(--color-grey-100);
+  &__current {
+    background-color: var(--color-grey-950);
+  }
+}
+
+.controls-length-time-light {
+  color: var(--color-grey-500);
+}
+
+.volume-loudness-light {
+  background-color: var(--color-grey-100);
+  &__amount {
+    background-color: var(--color-grey-950);
+  }
+}

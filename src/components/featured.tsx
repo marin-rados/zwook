@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { featuredData } from "../data/data";
+import { useColorModeStore } from "../store/store";
 
 const Featured = () => {
   const [active, setActive] = useState<string>("All");
+  const { lightMode } = useColorModeStore();
 
   const handleActiveContent = (category: string) => {
     setActive(category);
@@ -11,7 +13,13 @@ const Featured = () => {
   return (
     <div className="featured">
       <div className="featured-header">
-        <p className="featured-header__title">Featured</p>
+        <p
+          className={`featured-header__title ${
+            lightMode ? "featured-header-title-light" : ""
+          }`}
+        >
+          Featured
+        </p>
         <div className="featured-header__options">
           <button
             onClick={() => handleActiveContent("All")}
@@ -25,7 +33,7 @@ const Featured = () => {
           <button
             onClick={() => handleActiveContent("Premium")}
             className={`featured-header__options__button ${
-              active === "Premium" ? "active-button" : ""
+              active === "Premium" ? "active-button" : "" || lightMode ? "" : ""
             }`}
           >
             Premium
@@ -43,13 +51,24 @@ const Featured = () => {
       <div className="featured-content">
         {featuredData.map((featured, index) => {
           return (
-            <div key={index} className="featured-content__card">
+            <div
+              key={index}
+              className={`featured-content__card ${
+                lightMode ? "featured-content-card-light" : ""
+              }`}
+            >
               <img
                 className="featured-content__card__image"
                 src={featured.img}
                 alt={`Image of ${featured.name}`}
               />
-              <p className="featured-content__card__title">{featured.name}</p>
+              <p
+                className={`featured-content__card__title ${
+                  lightMode ? "featured-content-card-light__title" : ""
+                }`}
+              >
+                {featured.name}
+              </p>
             </div>
           );
         })}

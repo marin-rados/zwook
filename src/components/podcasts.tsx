@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useColorModeStore } from "../store/store";
 
 type PodcastsType = {
   premium: boolean;
@@ -10,6 +11,7 @@ type PodcastsType = {
 
 const Podcasts = () => {
   const [data, setData] = useState<PodcastsType[]>([]);
+  const { lightMode } = useColorModeStore();
 
   const getData = () => {
     fetch("http://localhost:3000/podcasts")
@@ -34,8 +36,20 @@ const Podcasts = () => {
   return (
     <div className="podcasts">
       <div className="podcasts__header">
-        <p className="podcasts__header__title">Podcasts</p>
-        <button className="podcasts__header__button">View All</button>
+        <p
+          className={`podcasts__header__title ${
+            lightMode ? "podcasts-header-title-light" : ""
+          }`}
+        >
+          Podcasts
+        </p>
+        <button
+          className={`podcasts__header__button ${
+            lightMode ? "podcasts-header-button-light" : ""
+          }`}
+        >
+          View All
+        </button>
       </div>
       <div className="podcasts__cards">
         {data.map((podcast) => {

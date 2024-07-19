@@ -31,6 +31,23 @@
   }
 }
 
+.login-toggle-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  width: 2.25rem;
+  padding: 0.25rem;
+  border-radius: var(--border-circle);
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 250ms ease;
+  margin-bottom: 2rem;
+  &:hover {
+    background-color: var(--color-dark-blue-400);
+  }
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -133,8 +150,6 @@
   &:hover {
     opacity: 0.7;
   }
-  &__image {
-  }
   &__button {
     color: var(--color-grey-100);
     line-height: var(--line-height-md);
@@ -151,4 +166,30 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+//LIGHT MODE
+
+.login-light {
+  background-color: var(--color-grey-100);
+}
+
+.login-form-light {
+  background-color: var(--color-grey-25);
+  border: 1px solid var(--color-grey-300);
+}
+
+.welcome-title-light {
+  color: var(--color-grey-950);
+}
+
+.welcome-message-light {
+  color: var(--color-grey-500);
+  &__signup {
+    color: var(--color-grey-950);
+  }
+}
+
+.inputs-light {
+  border: 1px solid var(--color-grey-300);
 }
