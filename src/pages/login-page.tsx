@@ -9,6 +9,7 @@ import sitePreviewLight from "../assets/images/login/site-preview-lightMode.png"
 import darkIcon from "../assets/icons/light-mode/dark.svg";
 import lightIcon from "../assets/icons/light-mode/light.svg";
 import logoTitleLight from "../assets/icons/sidebar/lightMode/logo-title-light.svg";
+import googleIconLightMode from "../assets/icons/login/login-light-mode/google-lightMode.svg";
 
 const LoginPage = () => {
   const { lightMode, setLightMode } = useColorModeStore();
@@ -88,13 +89,21 @@ const LoginPage = () => {
             <p className="login-or__text">or</p>
             <hr className="login-or__hr" />
           </div>
-          <div className="login-authorize">
+          <div
+            className={`login-authorize ${
+              lightMode ? "login-authorize-light" : ""
+            }`}
+          >
             <img
-              src={googleIcon}
+              src={lightMode ? googleIconLightMode : googleIcon}
               alt="Google Logo Image"
               className="login-authorize__image"
             />
-            <button className="login-authorize__button">
+            <button
+              className={`login-authorize__button ${
+                lightMode ? "login-authorize-light__button" : ""
+              }`}
+            >
               Authorize with Google
             </button>
           </div>

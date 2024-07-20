@@ -2,10 +2,12 @@ import { playlistPageData, playlistSongsData } from "../data/data";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { PlaylistDataType } from "../types/global";
+import { useColorModeStore } from "../store/store";
 
 const PlaylistPage = () => {
   const { playlistId } = useParams();
   const [data, setData] = useState<PlaylistDataType>();
+  const { lightMode } = useColorModeStore();
 
   const getPlaylistInfo = () => {
     const playlist = playlistPageData.find((playlist) => {
@@ -45,38 +47,109 @@ const PlaylistPage = () => {
       )}
 
       <table className="tracks">
-        <thead className="tracks__header">
+        <thead
+          className={`tracks__header ${lightMode ? "tracks-header-light" : ""}`}
+        >
           <tr className="tracks__header__tags">
-            <th className="tracks__header__tags__tag">#</th>
-            <th className="tracks__header__tags__tag">Title</th>
-            <th className="tracks__header__tags__tag">Album</th>
-            <th className="tracks__header__tags__tag">Date Added</th>
-            <th className="tracks__header__tags__tag">Song Time</th>
+            <th
+              className={`tracks__header__tags__tag ${
+                lightMode ? "tracks-header-tag-light" : ""
+              }`}
+            >
+              #
+            </th>
+            <th
+              className={`tracks__header__tags__tag ${
+                lightMode ? "tracks-header-tag-light" : ""
+              }`}
+            >
+              Title
+            </th>
+            <th
+              className={`tracks__header__tags__tag ${
+                lightMode ? "tracks-header-tag-light" : ""
+              }`}
+            >
+              Album
+            </th>
+            <th
+              className={`tracks__header__tags__tag ${
+                lightMode ? "tracks-header-tag-light" : ""
+              }`}
+            >
+              Date Added
+            </th>
+            <th
+              className={`tracks__header__tags__tag ${
+                lightMode ? "tracks-header-tag-light" : ""
+              }`}
+            >
+              Song Time
+            </th>
           </tr>
         </thead>
         <tbody>
           {playlistSongsData.map((song, index) => {
             return (
-              <tr key={song.artistName} className="track">
-                <td className="track__info">{index + 1}</td>
+              <tr
+                key={song.artistName}
+                className={`track ${lightMode ? "track-light" : ""}`}
+              >
+                <td
+                  className={`track__info ${
+                    lightMode ? "track-info-light" : ""
+                  }`}
+                >
+                  {index + 1}
+                </td>
                 <td>
                   <div className="track-artist">
                     <img
-                      className="track-artist__image"
+                      className={`track-artist__image ${
+                        lightMode ? "track-artist-image-light" : ""
+                      }`}
                       src={song.songImg}
                       alt={`Image of a ${song.artistName}`}
                     />
                     <div>
-                      <div className="track-artist__title">{song.songName}</div>
-                      <div className="track-artist__name">
+                      <div
+                        className={`track-artist__title ${
+                          lightMode ? "track-artist-title-light" : ""
+                        }`}
+                      >
+                        {song.songName}
+                      </div>
+                      <div
+                        className={`track-artist__name ${
+                          lightMode ? "track-artist-name-light" : ""
+                        }`}
+                      >
                         {song.artistName}
                       </div>
                     </div>
                   </div>
                 </td>
-                <td className="track__info">{song.album}</td>
-                <td className="track__info">{song.dateAdded}</td>
-                <td className="track__info">{song.songDuration}</td>
+                <td
+                  className={`track__info ${
+                    lightMode ? "track-info-light" : ""
+                  }`}
+                >
+                  {song.album}
+                </td>
+                <td
+                  className={`track__info ${
+                    lightMode ? "track-info-light" : ""
+                  }`}
+                >
+                  {song.dateAdded}
+                </td>
+                <td
+                  className={`track__info ${
+                    lightMode ? "track-info-light" : ""
+                  }`}
+                >
+                  {song.songDuration}
+                </td>
               </tr>
             );
           })}
