@@ -1,12 +1,25 @@
 import uploadImg from "../assets/icons/add-podcast/upload-icon.svg";
+import { useColorModeStore } from "../store/store";
+import uploadImgLightMode from "../assets/icons/add-podcast/add-podcast-light-mode/upload-icon-lightMode.svg";
 
 const AddPodcast = () => {
+  const { lightMode } = useColorModeStore();
   return (
     <div className="add-podcast">
       <div className="add-podcast-header">
-        <h1 className="add-podcast-header__title">Create New Podcast</h1>
+        <h1
+          className={`add-podcast-header__title ${
+            lightMode ? "add-podcast-header-title" : ""
+          }`}
+        >
+          Create New Podcast
+        </h1>
         <div className="add-podcast-header__controls">
-          <button className="add-podcast-header__controls__button">
+          <button
+            className={`add-podcast-header__controls__button ${
+              lightMode ? "cancel-light" : ""
+            }`}
+          >
             Cancel
           </button>
           <button className="add-podcast-header__controls__button save">
@@ -16,11 +29,23 @@ const AddPodcast = () => {
       </div>
 
       <div className="add-podcast-form">
-        <form className="add-podcast-form__inputs form">
+        <form
+          className={`add-podcast-form__inputs form ${
+            lightMode ? "form-light" : ""
+          }`}
+        >
           <div className="form-input">
-            <label className="form-input__label">Title</label>
+            <label
+              className={`form-input__label ${
+                lightMode ? "form-input-label-light" : ""
+              }`}
+            >
+              Title
+            </label>
             <input
-              className="form-input__input-field"
+              className={`form-input__input-field ${
+                lightMode ? "form-input-input-field-light" : ""
+              }`}
               type="text"
               id="title"
               name="title"
@@ -28,9 +53,17 @@ const AddPodcast = () => {
             />
           </div>
           <div className="form-input">
-            <label className="form-input__label">Description link</label>
+            <label
+              className={`form-input__label ${
+                lightMode ? "form-input-label-light" : ""
+              }`}
+            >
+              Description link
+            </label>
             <input
-              className="form-input__input-field"
+              className={`form-input__input-field ${
+                lightMode ? "form-input-input-field-light" : ""
+              }`}
               type="url"
               id="description-link"
               name="description-link"
@@ -38,9 +71,17 @@ const AddPodcast = () => {
             />
           </div>
           <div className="form-input">
-            <label className="form-input__label">Description</label>
+            <label
+              className={`form-input__label ${
+                lightMode ? "form-input-label-light" : ""
+              }`}
+            >
+              Description
+            </label>
             <textarea
-              className="form-input__input-field"
+              className={`form-input__input-field ${
+                lightMode ? "form-input-input-field-light" : ""
+              }`}
               id="description"
               name="description"
               placeholder="Enter station description"
@@ -49,28 +90,58 @@ const AddPodcast = () => {
 
           <div className="checkbox">
             <input type="checkbox" name="status" className="checkbox__box" />
-            <label className="checkbox__label">Status</label>
+            <label
+              className={`checkbox__label ${
+                lightMode ? "checkbox-label-title" : ""
+              }`}
+            >
+              Status
+            </label>
           </div>
 
           <div className="checkbox">
             <input type="checkbox" name="premium" className="checkbox__box" />
-            <label className="checkbox__label">Premium</label>
+            <label
+              className={`checkbox__label ${
+                lightMode ? "checkbox-label-title" : ""
+              }`}
+            >
+              Premium
+            </label>
           </div>
 
           <div className="checkbox">
             <input type="checkbox" name="default" className="checkbox__box" />
-            <label className="checkbox__label">Make Default</label>
+            <label
+              className={`checkbox__label ${
+                lightMode ? "checkbox-label-title" : ""
+              }`}
+            >
+              Make Default
+            </label>
           </div>
           <div className="checkbox">
             <input type="checkbox" name="visible" className="checkbox__box" />
-            <label className="checkbox__label">Visible on the Portal</label>
+            <label
+              className={`checkbox__label ${
+                lightMode ? "checkbox-label-title" : ""
+              }`}
+            >
+              Visible on the Portal
+            </label>
           </div>
         </form>
 
-        <form className="add-podcast-form__upload form">
-          <div className="upload-field">
+        <form
+          className={`add-podcast-form__upload form ${
+            lightMode ? "form-light" : ""
+          }`}
+        >
+          <div
+            className={`upload-field ${lightMode ? "upload-field-light" : ""}`}
+          >
             <img
-              src={uploadImg}
+              src={lightMode ? uploadImgLightMode : uploadImg}
               alt="Upload image"
               className="upload-field__img"
             />
