@@ -4,11 +4,12 @@ import logoTitle from "../assets/icons/sidebar/logo-title.svg";
 import logoTitleLight from "../assets/icons/sidebar/lightMode/logo-title-light.svg";
 import star from "../assets/icons/sidebar/star-circle.svg";
 import { useNavigate } from "react-router-dom";
-import { useColorModeStore } from "../store/store";
+import { useAddPodcastStore, useColorModeStore } from "../store/store";
 
 const Sidebar = () => {
   const navigate = useNavigate();
   const { lightMode } = useColorModeStore();
+  const { setAddPodcast } = useAddPodcastStore();
 
   return (
     <div className={`sidebar ${lightMode ? "sidebar-light" : ""}`}>
@@ -25,7 +26,12 @@ const Sidebar = () => {
         {sidebarData.map((navigation) => {
           return (
             <div
-              onClick={() => navigate(`${navigation.href}`)}
+              onClick={() => {
+                navigate(`${navigation.href}`);
+                navigation.createPodcast
+                  ? setAddPodcast(true)
+                  : setAddPodcast(false);
+              }}
               key={navigation.id}
               className={`navigation__items ${
                 lightMode ? "navigation-items-light" : ""
@@ -47,10 +53,7 @@ const Sidebar = () => {
               </div>
               {navigation.notiffication && (
                 <>
-                  <div
-                    onClick={() => navigate(`${navigation.href}`)}
-                    className="navigation__items__optional"
-                  >
+                  <div className="navigation__items__optional">
                     <p className="navigation__items__optional__text">
                       {navigation.notifficationText}
                     </p>

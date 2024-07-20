@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/header";
 import Player from "../components/player";
-import { useColorModeStore } from "../store/store";
+import { useAddPodcastStore, useColorModeStore } from "../store/store";
 
 const ContentLayout = () => {
   const { lightMode } = useColorModeStore();
+  const { addPodcast } = useAddPodcastStore();
   return (
     <>
       <div
@@ -18,7 +19,7 @@ const ContentLayout = () => {
         >
           <Outlet />
         </div>
-        <Player />
+        {addPodcast ? "" : <Player />}
       </div>
     </>
   );

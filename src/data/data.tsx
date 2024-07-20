@@ -34,7 +34,7 @@ export const sidebarData = [
     name: "Devices",
     iconDark: devicesIconDark,
     iconLight: devicesIconLight,
-    href: "#",
+    href: "/",
     notiffication: true,
     notifficationText: 10,
   },
@@ -43,7 +43,7 @@ export const sidebarData = [
     name: "Subscriptions",
     iconDark: subscriptionsIconDark,
     iconLight: subscriptionsIconLight,
-    href: "#",
+    href: "/",
     notiffication: false,
   },
   {
@@ -51,7 +51,7 @@ export const sidebarData = [
     name: "Settings",
     iconDark: settingsIconDark,
     iconLight: settingsIconLight,
-    href: "#",
+    href: "/",
     notiffication: false,
   },
   {
@@ -67,7 +67,7 @@ export const sidebarData = [
     name: "Albums",
     iconDark: albumsIconDark,
     iconLight: albumsIconLight,
-    href: "#",
+    href: "/",
     notiffication: false,
   },
   {
@@ -75,7 +75,7 @@ export const sidebarData = [
     name: "Artists",
     iconDark: artistsIconDark,
     iconLight: artistsIconLight,
-    href: "#",
+    href: "/",
     notiffication: false,
   },
   {
@@ -83,7 +83,7 @@ export const sidebarData = [
     name: "Stations",
     iconDark: stationsIconDark,
     iconLight: stationsIconLight,
-    href: "#",
+    href: "/",
     notiffication: false,
   },
   {
@@ -91,9 +91,10 @@ export const sidebarData = [
     name: "Podcasts",
     iconDark: podcastsIconDark,
     iconLight: podcastsIconLight,
-    href: "podcast/add",
+    href: "/podcast/add",
     notiffication: true,
     notifficationText: "Add New",
+    createPodcast: true,
   },
 ];
 
