@@ -10,10 +10,14 @@ import darkIcon from "../assets/icons/light-mode/dark.svg";
 import lightIcon from "../assets/icons/light-mode/light.svg";
 import logoTitleLight from "../assets/icons/sidebar/lightMode/logo-title-light.svg";
 import googleIconLightMode from "../assets/icons/login/login-light-mode/google-lightMode.svg";
+import { useState } from "react";
+import userIcon from "../assets/icons/login/user.svg";
 
 const LoginPage = () => {
   const { lightMode, setLightMode } = useColorModeStore();
   const { setIsLogged } = useLoginStore();
+  const [register, setRegister] = useState<boolean>(false);
+
   return (
     <div className="login-page">
       <div className={`login ${lightMode ? "login-light" : ""}`}>
@@ -42,31 +46,76 @@ const LoginPage = () => {
               className="welcome-header__title"
             />
           </div>
+
           <div className="welcome">
-            <h4
-              className={`welcome__title ${
-                lightMode ? "welcome-title-light" : ""
-              }`}
-            >
-              Welcome Back
-            </h4>
-            <p
-              className={`welcome__message ${
-                lightMode ? "welcome-message-light" : ""
-              }`}
-            >
-              Don't have an account yet?{" "}
-              <span
-                className={`welcome__message__signup ${
-                  lightMode ? "welcome-message-light__signup" : ""
-                }`}
-              >
-                Sign Up
-              </span>
-            </p>
+            {register ? (
+              <div className={register ? "" : "hidden"}>
+                <h4
+                  className={`welcome__title ${
+                    lightMode ? "welcome-title-light" : ""
+                  }`}
+                >
+                  Register a new account
+                </h4>
+                <p
+                  className={`welcome__message ${
+                    lightMode ? "welcome-message-light" : ""
+                  }`}
+                >
+                  Already have an account?
+                  <span
+                    onClick={() => setRegister(false)}
+                    className={`welcome__message__signup ${
+                      lightMode ? "welcome-message-light__signup" : ""
+                    }`}
+                  >
+                    Login
+                  </span>
+                </p>
+              </div>
+            ) : (
+              <div className={register ? "hidden" : ""}>
+                <h4
+                  className={`welcome__title ${
+                    lightMode ? "welcome-title-light" : ""
+                  }`}
+                >
+                  Welcome Back
+                </h4>
+                <p
+                  className={`welcome__message ${
+                    lightMode ? "welcome-message-light" : ""
+                  }`}
+                >
+                  Don't have an account yet?
+                  <span
+                    onClick={() => setRegister(true)}
+                    className={`welcome__message__signup ${
+                      lightMode ? "welcome-message-light__signup" : ""
+                    }`}
+                  >
+                    Sign Up
+                  </span>
+                </p>
+              </div>
+            )}
           </div>
+
+          {register ? (
+            <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
+              <img src={userIcon} alt="User Icon" className="inputs__img" />
+              <input
+                type="text"
+                placeholder="User Name"
+                className="inputs__input"
+              />
+            </div>
+          ) : (
+            ""
+          )}
+
           <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
-            <img src={emailIcon} alt="" className="inputs__img" />
+            <img src={emailIcon} alt="Email Icon" className="inputs__img" />
             <input
               type="email"
               placeholder="Email Adress"
@@ -74,7 +123,11 @@ const LoginPage = () => {
             />
           </div>
           <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
-            <img src={lockIcon} alt="" className="inputs__img" />
+            <img
+              src={lockIcon}
+              alt="Password Lock Icon"
+              className="inputs__img"
+            />
             <input
               type="password"
               placeholder="Password"
@@ -82,7 +135,7 @@ const LoginPage = () => {
             />
           </div>
           <button onClick={() => setIsLogged(true)} className="login__button">
-            Login
+            {register ? "Register" : "Login"}
           </button>
           <div className="login-or">
             <hr className="login-or__hr" />

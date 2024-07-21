@@ -90,6 +90,7 @@
       color: var(--color-grey-100);
       cursor: pointer;
       transition: all 100ms ease;
+      margin-left: 0.25rem;
       &:hover {
         color: var(--color-yellow-500);
       }
@@ -166,6 +167,10 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.hidden {
+  display: none;
 }
 
 //LIGHT MODE
