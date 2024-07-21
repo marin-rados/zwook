@@ -122,18 +122,48 @@ const LoginPage = () => {
               className="inputs__input"
             />
           </div>
-          <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
-            <img
-              src={lockIcon}
-              alt="Password Lock Icon"
-              className="inputs__img"
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="inputs__input"
-            />
-          </div>
+          {register ? (
+            <>
+              <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
+                <img
+                  src={lockIcon}
+                  alt="Password Lock Icon"
+                  className="inputs__img"
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="inputs__input"
+                />
+              </div>
+              <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
+                <img
+                  src={lockIcon}
+                  alt="Password Lock Icon"
+                  className="inputs__img"
+                />
+                <input
+                  type="password"
+                  placeholder="Repeat Password"
+                  className="inputs__input"
+                />
+              </div>
+            </>
+          ) : (
+            <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
+              <img
+                src={lockIcon}
+                alt="Password Lock Icon"
+                className="inputs__img"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                className="inputs__input"
+              />
+            </div>
+          )}
+
           <button onClick={() => setIsLogged(true)} className="login__button">
             {register ? "Register" : "Login"}
           </button>
