@@ -51,7 +51,9 @@ const Podcasts = () => {
           View All
         </button>
       </div>
-      <div className="scroll">
+      <div
+        className={`podcast-scroll ${lightMode ? "podcast-scroll-light" : ""}`}
+      >
         <div className="podcasts__cards">
           {data.map((podcast) => {
             return (
