@@ -25,6 +25,8 @@
 
 .card {
   display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
   flex-direction: column;
   justify-content: space-between;
   width: 19.25rem;
@@ -33,7 +35,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-right: 2rem;
+  margin-right: 1rem;
   cursor: pointer;
   overflow: hidden;
   transition: all 250ms ease-in-out;
@@ -110,6 +112,13 @@
 
 .offline-circle {
   background-color: var(--color-red-500);
+}
+
+.scroll {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1rem 0rem;
 }
 
 //LIGHT MODE

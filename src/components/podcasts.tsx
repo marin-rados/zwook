@@ -51,41 +51,45 @@ const Podcasts = () => {
           View All
         </button>
       </div>
-      <div className="podcasts__cards">
-        {data.map((podcast) => {
-          return (
-            <div
-              key={podcast.title}
-              style={{ backgroundImage: `url(${podcast.img})` }}
-              className="card"
-            >
-              <div className="card__status">
-                <div className="card__status__view">
-                  <div
-                    className={`card__status__view__circle ${
-                      podcast.status ? "" : "offline-circle"
-                    }`}
-                  ></div>
-                  <p
-                    className={`card__status__view__text ${
-                      podcast.status ? "" : "offline-text"
-                    }`}
-                  >
-                    {podcast.status ? "Online" : "Offline"}
-                  </p>
+      <div className="scroll">
+        <div className="podcasts__cards">
+          {data.map((podcast) => {
+            return (
+              <div
+                key={podcast.title}
+                style={{ backgroundImage: `url(${podcast.img})` }}
+                className="card"
+              >
+                <div className="card__status">
+                  <div className="card__status__view">
+                    <div
+                      className={`card__status__view__circle ${
+                        podcast.status ? "" : "offline-circle"
+                      }`}
+                    ></div>
+                    <p
+                      className={`card__status__view__text ${
+                        podcast.status ? "" : "offline-text"
+                      }`}
+                    >
+                      {podcast.status ? "Online" : "Offline"}
+                    </p>
+                  </div>
+                </div>
+                <div className="card__info">
+                  <div className="card__info__content">
+                    <p className="card__info__content__title">
+                      {podcast.title}
+                    </p>
+                    <button className="card__info__content__edition">
+                      {podcast.premium ? "Premium" : "Free"}
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="card__info">
-                <div className="card__info__content">
-                  <p className="card__info__content__title">{podcast.title}</p>
-                  <button className="card__info__content__edition">
-                    {podcast.premium ? "Premium" : "Free"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
