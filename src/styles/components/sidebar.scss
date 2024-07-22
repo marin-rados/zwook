@@ -72,6 +72,11 @@
   }
 }
 
+.active {
+  background-color: var(--color-grey-700);
+  color: var(--color-grey-50);
+}
+
 .premium {
   display: flex;
   flex-direction: column;

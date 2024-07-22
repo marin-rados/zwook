@@ -5,11 +5,13 @@ import logoTitleLight from "../assets/icons/sidebar/lightMode/logo-title-light.s
 import star from "../assets/icons/sidebar/star-circle.svg";
 import { useNavigate } from "react-router-dom";
 import { useAddPodcastStore, useColorModeStore } from "../store/store";
+import { useState } from "react";
 
 const Sidebar = () => {
   const navigate = useNavigate();
   const { lightMode } = useColorModeStore();
   const { setAddPodcast } = useAddPodcastStore();
+  const [activeItem, setActiveItem] = useState<number | null>(null);
 
   return (
     <div className={`sidebar ${lightMode ? "sidebar-light" : ""}`}>
@@ -31,11 +33,12 @@ const Sidebar = () => {
                 navigation.createPodcast
                   ? setAddPodcast(true)
                   : setAddPodcast(false);
+                setActiveItem(navigation.id);
               }}
               key={navigation.id}
               className={`navigation__items ${
                 lightMode ? "navigation-items-light" : ""
-              }`}
+              } ${activeItem === navigation.id ? "active" : ""}`}
             >
               <div className="navigation__items__main">
                 <img
