@@ -12,6 +12,7 @@ const Sidebar = () => {
   const { lightMode } = useColorModeStore();
   const { setAddPodcast } = useAddPodcastStore();
   const [activeItem, setActiveItem] = useState<number | null>(null);
+  const [dismissPremium, setDismissPremium] = useState<boolean>(false);
 
   return (
     <div className={`sidebar ${lightMode ? "sidebar-light" : ""}`}>
@@ -68,7 +69,11 @@ const Sidebar = () => {
         })}
       </nav>
 
-      <div className={`premium ${lightMode ? "premium-light" : ""}`}>
+      <div
+        className={`premium ${lightMode ? "premium-light" : ""} ${
+          dismissPremium ? "hide-premium" : ""
+        }`}
+      >
         <div className="premium__update">
           <div className="premium__update__star">
             <img src={star} alt="Icon of a circle with a star in it" />
@@ -100,6 +105,7 @@ const Sidebar = () => {
         </div>
         <div className="premium__options">
           <p
+            onClick={() => setDismissPremium(true)}
             className={`premium__options__dismiss ${
               lightMode ? "premium-options-dismiss-light" : ""
             } `}

@@ -141,15 +141,21 @@
       font-weight: var(--font-weight-medium);
       &:hover {
         cursor: pointer;
+        color: var(--color-yellow-500);
       }
     }
     &__upgrade {
       color: var(--color-yellow-500);
       &:hover {
         cursor: pointer;
+        color: var(--color-grey-100);
       }
     }
   }
+}
+
+.hide-premium {
+  display: none;
 }
 
 //LIGHT MODE
