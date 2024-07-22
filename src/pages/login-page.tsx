@@ -164,7 +164,10 @@ const LoginPage = () => {
             </div>
           )}
 
-          <button onClick={() => setIsLogged(true)} className="login__button">
+          <button
+            onClick={() => (register ? "hidden" : setIsLogged(true))}
+            className="login__button"
+          >
             {register ? "Register" : "Login"}
           </button>
           <div className="login-or">
