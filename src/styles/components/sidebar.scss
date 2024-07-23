@@ -159,6 +159,7 @@
 }
 
 //LIGHT MODE
+
 .sidebar-light {
   background-color: var(--color-grey-25);
   border-right: 1px solid var(--color-grey-100);
@@ -197,4 +198,10 @@
 
 .premium-options-dismiss-light {
   color: var(--color-grey-950);
+}
+
+.active {
+  &__light {
+    background-color: var(--color-grey-300);
+  }
 }

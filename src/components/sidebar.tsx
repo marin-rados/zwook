@@ -39,7 +39,9 @@ const Sidebar = () => {
               key={navigation.id}
               className={`navigation__items ${
                 lightMode ? "navigation-items-light" : ""
-              } ${activeItem === navigation.id ? "active" : ""}`}
+              } ${activeItem === navigation.id ? "active" : ""} ${
+                lightMode && activeItem === navigation.id ? "active__light" : ""
+              }`}
             >
               <div className="navigation__items__main">
                 <img
