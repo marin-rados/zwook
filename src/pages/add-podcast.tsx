@@ -1,9 +1,49 @@
 import uploadImg from "../assets/icons/add-podcast/upload-icon.svg";
 import { useColorModeStore } from "../store/store";
 import uploadImgLightMode from "../assets/icons/add-podcast/add-podcast-light-mode/upload-icon-lightMode.svg";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm, SubmitHandler } from "react-hook-form";
+import * as yup from "yup";
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate, useParams } from "react-router";
+import { useState } from "react";
 
-const AddPodcast = () => {
+const schema = yup.object().shape({
+  premium: yup.boolean().required("Choose Podcast Type"),
+  status: yup.boolean().required("Podcast Status is required"),
+  visible: yup.boolean().required("Visible is required"),
+  title: yup.string().required("Podcast Title is required"),
+});
+
+type PodcastsType = {
+  id: string;
+  premium: boolean;
+  status: boolean;
+  visible: boolean;
+  title: string;
+};
+
+type FormValues = Omit<PodcastsType, "id">;
+
+type Props = {
+  isEdit?: boolean;
+};
+
+const AddPodcast = ({ isEdit }: Props) => {
   const { lightMode } = useColorModeStore();
+  const navigate = useNavigate();
+  const { id } = useParams() as { id: string };
+  const [data, setData] = useState<PodcastsType>();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormValues>({
+    resolver: yupResolver(schema),
+  });
+
   return (
     <div className="add-podcast">
       <div className="add-podcast-header">
@@ -12,7 +52,7 @@ const AddPodcast = () => {
             lightMode ? "add-podcast-header-title" : ""
           }`}
         >
-          Create New Podcast
+          {isEdit ? "Edit Podcast" : "Create New Podcast"}
         </h1>
         <div className="add-podcast-header__controls">
           <button

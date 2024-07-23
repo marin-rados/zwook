@@ -13,7 +13,12 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="playlist/:playlistId" element={<PlaylistPage />} />
-          <Route path="podcast/add" element={<AddPodcast />} />
+          {/* <Route path="podcast/add" element={<AddPodcast />} /> */}
+          <Route path="podcast">
+            <Route index element={<AddPodcast />} />
+            <Route path="new" element={<AddPodcast />} />
+            <Route path=":id" element={<AddPodcast />} />
+          </Route>
           {/* <Route path="login" element={<LoginPage />} /> */}
         </Route>
       </Routes>

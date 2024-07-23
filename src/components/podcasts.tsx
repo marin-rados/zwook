@@ -2,20 +2,14 @@ import { useEffect, useState } from "react";
 import { useColorModeStore } from "../store/store";
 import deleteIcon from "../assets/icons/add-podcast/delete.svg";
 import editIcon from "../assets/icons/add-podcast/edit.svg";
-
-type PodcastsType = {
-  premium: boolean;
-  status: boolean;
-  visible: boolean;
-  title: string;
-  img: string;
-  id: string;
-  deleted: boolean;
-};
+import { PodcastsType } from "../types/global";
+import { useNavigate } from "react-router-dom";
 
 const Podcasts = () => {
   const [data, setData] = useState<PodcastsType[]>([]);
   const { lightMode } = useColorModeStore();
+
+  const navigate = useNavigate();
 
   const getData = () => {
     fetch("http://localhost:3000/podcasts")
@@ -131,6 +125,9 @@ const Podcasts = () => {
                     />
                     <img
                       src={editIcon}
+                      onClick={() => {
+                        navigate(`/podcasts/${podcast.id}`);
+                      }}
                       alt="Edit Icon"
                       className="card__status__actions__img"
                     />
