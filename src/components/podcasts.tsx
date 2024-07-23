@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useColorModeStore } from "../store/store";
+import deleteIcon from "../assets/icons/add-podcast/delete.svg";
+import editIcon from "../assets/icons/add-podcast/edit.svg";
 
 type PodcastsType = {
   premium: boolean;
@@ -7,6 +9,8 @@ type PodcastsType = {
   visible: boolean;
   title: string;
   img: string;
+  id: string;
+  deleted: boolean;
 };
 
 const Podcasts = () => {
@@ -19,19 +23,72 @@ const Podcasts = () => {
         if (res.ok) {
           return res.json();
         }
-        console.log(res);
+        throw new Error("Failed to fetch");
       })
       .then((data) => {
-        setData(data);
+        const resetData = data.map((podcast: PodcastsType) => {
+          return { ...podcast, deleted: false };
+        });
+
+        const updatePromises = resetData.map((podcast: PodcastsType) => {
+          return fetch(`http://localhost:3000/podcasts/${podcast.id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(podcast),
+          });
+        });
+
+        // Wait for all updates to complete
+        Promise.all(updatePromises)
+          .then(() => {
+            // Set the state with the reset data
+            setData(resetData);
+          })
+          .catch((err) => {
+            console.error("Failed to update podcasts:", err);
+          });
       })
       .catch((err) => {
-        console.log(err);
+        console.error("Failed to fetch podcasts:", err);
       });
   };
 
   useEffect(() => {
     getData();
   }, []);
+
+  const deleteData = (id: string) => {
+    fetch(`http://localhost:3000/podcasts/${id}`)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Failed to fetch podcast for deletion");
+      })
+      .then((podcast) => {
+        podcast.deleted = true;
+        return fetch(`http://localhost:3000/podcasts/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(podcast),
+        });
+      })
+      .then((res) => {
+        if (res.ok) {
+          // Filter out the deleted podcast from the current state
+          setData((prevData) => prevData.filter((p) => p.id !== id));
+        } else {
+          throw new Error("Failed to update podcast as deleted");
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to delete podcast:", err);
+      });
+  };
 
   return (
     <div className="podcasts">
@@ -63,6 +120,21 @@ const Podcasts = () => {
                 className="card"
               >
                 <div className="card__status">
+                  <div className="card__status__actions">
+                    <img
+                      onClick={() => {
+                        deleteData(podcast.id);
+                      }}
+                      src={deleteIcon}
+                      alt="Delete Icon"
+                      className="card__status__actions__img"
+                    />
+                    <img
+                      src={editIcon}
+                      alt="Edit Icon"
+                      className="card__status__actions__img"
+                    />
+                  </div>
                   <div className="card__status__view">
                     <div
                       className={`card__status__view__circle ${
