@@ -19,13 +19,14 @@ const LoginPage = () => {
   const [register, setRegister] = useState<boolean>(false);
 
   return (
-    <div className="login-page">
+    <main className="login-page">
       <div className={`login ${lightMode ? "login-light" : ""}`}>
         <div
           onClick={() => {
             setLightMode(!lightMode);
           }}
           className="login-toggle-mode"
+          aria-label="Toggle light/dark mode"
         >
           <img
             src={lightMode ? darkIcon : lightIcon}
@@ -34,7 +35,7 @@ const LoginPage = () => {
         </div>
 
         <form className={`login-form ${lightMode ? "login-form-light" : ""}`}>
-          <div className="welcome-header">
+          <header className="welcome-header">
             <img
               src={logo}
               alt="Zwook Logo Image"
@@ -45,9 +46,9 @@ const LoginPage = () => {
               alt="Zwook Title"
               className="welcome-header__title"
             />
-          </div>
+          </header>
 
-          <div className="welcome">
+          <section className="welcome">
             {register ? (
               <div className={register ? "" : "hidden"}>
                 <h4
@@ -99,19 +100,18 @@ const LoginPage = () => {
                 </p>
               </div>
             )}
-          </div>
+          </section>
 
-          {register ? (
+          {register && (
             <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
               <img src={userIcon} alt="User Icon" className="inputs__img" />
               <input
                 type="text"
                 placeholder="User Name"
                 className="inputs__input"
+                aria-label="User Name"
               />
             </div>
-          ) : (
-            ""
           )}
 
           <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
@@ -120,36 +120,24 @@ const LoginPage = () => {
               type="email"
               placeholder="Email Adress"
               className="inputs__input"
+              aria-label="Email Address"
             />
           </div>
-          {register ? (
-            <>
-              <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
-                <img
-                  src={lockIcon}
-                  alt="Password Lock Icon"
-                  className="inputs__img"
-                />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="inputs__input"
-                />
-              </div>
-              <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
-                <img
-                  src={lockIcon}
-                  alt="Password Lock Icon"
-                  className="inputs__img"
-                />
-                <input
-                  type="password"
-                  placeholder="Repeat Password"
-                  className="inputs__input"
-                />
-              </div>
-            </>
-          ) : (
+
+          <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
+            <img
+              src={lockIcon}
+              alt="Password Lock Icon"
+              className="inputs__img"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="inputs__input"
+            />
+          </div>
+
+          {register && (
             <div className={`inputs ${lightMode ? "inputs-light" : ""}`}>
               <img
                 src={lockIcon}
@@ -158,23 +146,27 @@ const LoginPage = () => {
               />
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="Repeat Password"
                 className="inputs__input"
+                aria-label="Repeat Password"
               />
             </div>
           )}
 
           <button
+            type="button"
             onClick={() => (register ? "hidden" : setIsLogged(true))}
             className="login__button"
           >
             {register ? "Register" : "Login"}
           </button>
+
           <div className="login-or">
             <hr className="login-or__hr" />
             <p className="login-or__text">or</p>
             <hr className="login-or__hr" />
           </div>
+
           <div
             className={`login-authorize ${
               lightMode ? "login-authorize-light" : ""
@@ -186,6 +178,7 @@ const LoginPage = () => {
               className="login-authorize__image"
             />
             <button
+              type="button"
               className={`login-authorize__button ${
                 lightMode ? "login-authorize-light__button" : ""
               }`}
@@ -202,7 +195,7 @@ const LoginPage = () => {
           backgroundImage: `url(${lightMode ? sitePreviewLight : sitePreview})`,
         }}
       ></div>
-    </div>
+    </main>
   );
 };
 
