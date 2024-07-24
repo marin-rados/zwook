@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { featuredData } from "../data/data";
 import { useColorModeStore } from "../store/store";
 
@@ -10,22 +11,25 @@ const Featured = () => {
     setActive(category);
   };
 
+  const navigate = useNavigate();
+
   return (
-    <div className="featured">
+    <section className="featured">
       <div className="featured-header">
-        <p
+        <h2
           className={`featured-header__title ${
             lightMode ? "featured-header-title-light" : ""
           }`}
         >
           Featured
-        </p>
+        </h2>
         <div className="featured-header__options">
           <button
             onClick={() => handleActiveContent("All")}
             className={`featured-header__options__button ${
               active === "All" ? "active-button" : ""
             }`}
+            aria-label="View all featured content"
           >
             All
           </button>
@@ -35,6 +39,7 @@ const Featured = () => {
             className={`featured-header__options__button ${
               active === "Premium" ? "active-button" : "" || lightMode ? "" : ""
             }`}
+            aria-label="View premium podcasts"
           >
             Premium
           </button>
@@ -43,6 +48,7 @@ const Featured = () => {
             className={`featured-header__options__button ${
               active === "Disabled" ? "active-button" : ""
             }`}
+            aria-label="View disabled podcasts"
           >
             Disabled
           </button>
@@ -51,16 +57,25 @@ const Featured = () => {
       <div className="featured-content">
         {featuredData.map((featured, index) => {
           return (
-            <div
+            <article
               key={index}
               className={`featured-content__card ${
                 lightMode ? "featured-content-card-light" : ""
               }`}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  navigate(`/`);
+                }
+              }}
+              aria-label={`Go to ${featured.name} podcast`}
             >
               <img
                 className="featured-content__card__image"
                 src={featured.img}
                 alt={`Image of ${featured.name}`}
+                aria-label={`Image of ${featured.name}`}
               />
               <p
                 className={`featured-content__card__title ${
@@ -69,11 +84,11 @@ const Featured = () => {
               >
                 {featured.name}
               </p>
-            </div>
+            </article>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 
