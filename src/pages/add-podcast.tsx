@@ -45,8 +45,8 @@ const AddPodcast = ({ isEdit }: Props) => {
   });
 
   return (
-    <div className="add-podcast">
-      <div className="add-podcast-header">
+    <main className="add-podcast">
+      <header className="add-podcast-header">
         <h1
           className={`add-podcast-header__title ${
             lightMode ? "add-podcast-header-title" : ""
@@ -56,19 +56,23 @@ const AddPodcast = ({ isEdit }: Props) => {
         </h1>
         <div className="add-podcast-header__controls">
           <button
+            type="button"
             className={`add-podcast-header__controls__button ${
               lightMode ? "cancel-light" : ""
             }`}
           >
             Cancel
           </button>
-          <button className="add-podcast-header__controls__button save">
+          <button
+            type="button"
+            className="add-podcast-header__controls__button save"
+          >
             Save
           </button>
         </div>
-      </div>
+      </header>
 
-      <div className="add-podcast-form">
+      <section className="add-podcast-form">
         <form
           className={`add-podcast-form__inputs form ${
             lightMode ? "form-light" : ""
@@ -76,6 +80,7 @@ const AddPodcast = ({ isEdit }: Props) => {
         >
           <div className="form-input">
             <label
+              htmlFor="title"
               className={`form-input__label ${
                 lightMode ? "form-input-label-light" : ""
               }`}
@@ -86,14 +91,15 @@ const AddPodcast = ({ isEdit }: Props) => {
               className={`form-input__input-field ${
                 lightMode ? "form-input-input-field-light" : ""
               }`}
-              type="text"
               id="title"
               name="title"
+              type="text"
               placeholder="Enter station title"
             />
           </div>
           <div className="form-input">
             <label
+              htmlFor="description-link"
               className={`form-input__label ${
                 lightMode ? "form-input-label-light" : ""
               }`}
@@ -104,14 +110,15 @@ const AddPodcast = ({ isEdit }: Props) => {
               className={`form-input__input-field ${
                 lightMode ? "form-input-input-field-light" : ""
               }`}
-              type="url"
               id="description-link"
               name="description-link"
+              type="url"
               placeholder="Enter website URL"
             />
           </div>
           <div className="form-input">
             <label
+              htmlFor="description"
               className={`form-input__label ${
                 lightMode ? "form-input-label-light" : ""
               }`}
@@ -129,8 +136,14 @@ const AddPodcast = ({ isEdit }: Props) => {
           </div>
 
           <div className="checkbox">
-            <input type="checkbox" name="status" className="checkbox__box" />
+            <input
+              id="status"
+              type="checkbox"
+              name="status"
+              className="checkbox__box"
+            />
             <label
+              htmlFor="status"
               className={`checkbox__label ${
                 lightMode ? "checkbox-label-title" : ""
               }`}
@@ -140,8 +153,14 @@ const AddPodcast = ({ isEdit }: Props) => {
           </div>
 
           <div className="checkbox">
-            <input type="checkbox" name="premium" className="checkbox__box" />
+            <input
+              id="premium"
+              type="checkbox"
+              name="premium"
+              className="checkbox__box"
+            />
             <label
+              htmlFor="premium"
               className={`checkbox__label ${
                 lightMode ? "checkbox-label-title" : ""
               }`}
@@ -151,8 +170,14 @@ const AddPodcast = ({ isEdit }: Props) => {
           </div>
 
           <div className="checkbox">
-            <input type="checkbox" name="default" className="checkbox__box" />
+            <input
+              id="default"
+              type="checkbox"
+              name="default"
+              className="checkbox__box"
+            />
             <label
+              htmlFor="default"
               className={`checkbox__label ${
                 lightMode ? "checkbox-label-title" : ""
               }`}
@@ -161,8 +186,14 @@ const AddPodcast = ({ isEdit }: Props) => {
             </label>
           </div>
           <div className="checkbox">
-            <input type="checkbox" name="visible" className="checkbox__box" />
+            <input
+              id="visible"
+              type="checkbox"
+              name="visible"
+              className="checkbox__box"
+            />
             <label
+              htmlFor="visible"
               className={`checkbox__label ${
                 lightMode ? "checkbox-label-title" : ""
               }`}
@@ -194,12 +225,12 @@ const AddPodcast = ({ isEdit }: Props) => {
               className="upload-field__input"
             />
           </div>
-          <button className="add-podcast-form__upload__button">
+          <button type="button" className="add-podcast-form__upload__button">
             Upload Image
           </button>
         </form>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
