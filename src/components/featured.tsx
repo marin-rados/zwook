@@ -15,7 +15,7 @@ const Featured = () => {
 
   return (
     <section className="featured">
-      <div className="featured-header">
+      <header className="featured-header">
         <h2
           className={`featured-header__title ${
             lightMode ? "featured-header-title-light" : ""
@@ -53,7 +53,7 @@ const Featured = () => {
             Disabled
           </button>
         </div>
-      </div>
+      </header>
       <div className="featured-content">
         {featuredData.map((featured, index) => {
           return (

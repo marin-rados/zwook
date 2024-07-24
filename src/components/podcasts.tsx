@@ -86,7 +86,7 @@ const Podcasts = () => {
 
   return (
     <section className="podcasts">
-      <div className="podcasts__header">
+      <header className="podcasts__header">
         <h2
           className={`podcasts__header__title ${
             lightMode ? "podcasts-header-title-light" : ""
@@ -102,7 +102,7 @@ const Podcasts = () => {
         >
           View All
         </button>
-      </div>
+      </header>
       <div
         className={`podcast-scroll ${lightMode ? "podcast-scroll-light" : ""}`}
       >

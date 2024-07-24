@@ -8,7 +8,7 @@ const Categories = () => {
 
   return (
     <section className="categories">
-      <div className="categories-header">
+      <header className="categories-header">
         <h2
           className={`categories-header__title ${
             lightMode ? "categories-header-title-light" : ""
@@ -24,7 +24,7 @@ const Categories = () => {
         >
           View All
         </button>
-      </div>
+      </header>
       <div className="categories-content">
         {categoriesdData.map((category, index) => {
           return (
