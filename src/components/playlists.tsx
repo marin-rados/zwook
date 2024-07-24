@@ -9,58 +9,39 @@ const Playlists = () => {
   };
 
   return (
-    <div className="playlists">
+    <section className="playlists">
       {playlistPageData.map((playlist) => {
         return (
-          <div
+          <article
             key={playlist.id}
             onClick={() => goTo(`playlist/${playlist.id}`)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                goTo(`playlist/${playlist.id}`);
+              }
+            }}
             style={{ backgroundImage: `url(${playlist.playlistImg})` }}
             className="playlists__playlist"
+            aria-label={`Go to ${playlist.name} playlist`}
           >
             <div className="playlist-info">
               <img
                 src={arrowCornerRight}
-                alt="Arrow Icon"
+                alt="Arrow pointing to the top right"
                 className="playlist-info__icon"
               />
-              <p className="playlist-info__title">{playlist.name}</p>
+              <h2 className="playlist-info__title">{playlist.name}</h2>
               <p className="playlist-info__description">
                 {`New release "Impressions" coming ${playlist.date}`}
               </p>
             </div>
-          </div>
+          </article>
         );
       })}
-    </div>
+    </section>
   );
 };
 
 export default Playlists;
-
-{
-  /* <div className="playlists">
-  {playlistPageData.map((playlist) => {
-    return (
-      <div
-        key={playlist.id}
-        onClick={() => goTo("/playlist")}
-        style={{ backgroundImage: `url(${playlist.playlistImg})` }}
-        className="playlists__playlist"
-      >
-        <div className="playlist-info">
-          <img
-            src={arrowCornerRight}
-            alt="Arrow Icon"
-            className="playlist-info__icon"
-          />
-          <p className="playlist-info__title">{playlist.name}</p>
-          <p className="playlist-info__description">
-            {`New release "Impressions" coming ${playlist.date}`}
-          </p>
-        </div>
-      </div>
-    );
-  })}
-</div>; */
-}

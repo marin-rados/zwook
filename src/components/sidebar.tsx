@@ -42,12 +42,14 @@ const Sidebar = () => {
               } ${activeItem === navigation.id ? "active" : ""} ${
                 lightMode && activeItem === navigation.id ? "active__light" : ""
               }`}
+              aria-current={activeItem === navigation.id ? "page" : undefined}
+              aria-label={navigation.name}
             >
               <div className="navigation__items__main">
                 <img
                   className="navigation__items__main__icon"
                   src={lightMode ? navigation.iconLight : navigation.iconDark}
-                  alt="icon"
+                  alt={`${navigation.name} icon`}
                 />
                 <p
                   className={`navigation__items__main__label ${
@@ -71,10 +73,11 @@ const Sidebar = () => {
         })}
       </nav>
 
-      <div
+      <section
         className={`premium ${lightMode ? "premium-light" : ""} ${
           dismissPremium ? "hide-premium" : ""
         }`}
+        aria-label="Update Premium"
       >
         <div className="premium__update">
           <div className="premium__update__star">
@@ -102,6 +105,10 @@ const Sidebar = () => {
           className={`premium__progress ${
             lightMode ? "premium-progress-light" : ""
           } `}
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={80}
         >
           <div className="premium__progress__amount"></div>
         </div>
@@ -116,7 +123,7 @@ const Sidebar = () => {
           </p>
           <p className="premium__options__upgrade">Upgrade Plan</p>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

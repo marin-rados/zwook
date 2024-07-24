@@ -14,7 +14,7 @@ import searchIconLight from "../assets/icons/header/lightMode/search-icon-light.
 const Header = () => {
   const { lightMode, setLightMode } = useColorModeStore();
   return (
-    <div className={`header ${lightMode ? "header-light" : ""}`}>
+    <header className={`header ${lightMode ? "header-light" : ""}`}>
       <div
         className={`header__search ${lightMode ? "header-search-light" : ""}`}
       >
@@ -32,10 +32,13 @@ const Header = () => {
         />
       </div>
 
-      <div className="account">
+      <nav className="account">
         <div
           onClick={() => setLightMode(!lightMode)}
           className={`toggle-mode ${lightMode ? "toggle-mode-light" : ""}`}
+          aria-label={
+            lightMode ? "Switch to dark mode" : "Switch to light mode"
+          }
         >
           <img
             src={lightMode ? darkModeIcon : lightModeIcon}
@@ -43,20 +46,21 @@ const Header = () => {
             className="toggle-mode__img"
           />
         </div>
-        <img src="" alt="" />
         <img
           src={lightMode ? graphLight : activitiesIcon}
-          alt="Activities icon"
+          alt="Activities"
           className="account__action"
         />
         <img
           src={lightMode ? notifficationLight : notifficationsIcon}
-          alt="Notiffication bell icon"
+          alt="Notiffications"
           className="account__action"
         />
         <div
           className={`avatar ${lightMode ? "avatar-light" : ""}`}
           style={{ backgroundImage: `url(${AlbertFlores})` }}
+          role="img"
+          aria-label="Albert Flores"
         >
           <div
             className={`avatar__status ${
@@ -74,11 +78,12 @@ const Header = () => {
         </div>
         <img
           src={lightMode ? arrowDownLight : arrowDown}
-          alt="See more icon"
+          alt="See more options"
           className="account__more"
+          aria-label="See more options"
         />
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 
