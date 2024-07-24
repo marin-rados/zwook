@@ -204,27 +204,31 @@ import shuffleLight from "../assets/icons/music-control/light-mode/shuffle-light
 
 export const playerIconsData = [
   {
+    altText: "Shuffle Songs",
     img: shuffle,
     lightModeImg: shuffleLight,
     playIcon: false,
   },
   {
+    altText: "Previous Song",
     img: prevButton,
     lightModeImg: prevButtonLight,
     playIcon: false,
   },
   {
+    altText: "Play Control",
     img: play,
     lightModeImg: playLight,
     playIcon: true,
   },
   {
+    altText: "Next Song",
     img: nextButton,
     lightModeImg: nextButtonLight,
     playIcon: false,
   },
-
   {
+    altText: "Repeat Song",
     img: repeat,
     lightModeImg: repeatLight,
     playIcon: false,

@@ -9,13 +9,13 @@ const Categories = () => {
   return (
     <section className="categories">
       <div className="categories-header">
-        <p
+        <h2
           className={`categories-header__title ${
             lightMode ? "categories-header-title-light" : ""
           }`}
         >
           Categories
-        </p>
+        </h2>
         <button
           className={`categories-header__button ${
             lightMode ? "categories-header-button-light" : ""

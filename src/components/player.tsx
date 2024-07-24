@@ -38,7 +38,8 @@ const Player = () => {
               <img
                 key={index}
                 src={lightMode ? icon.lightModeImg : icon.img}
-                alt="Player control icon"
+                alt={icon.altText}
+                aria-label={icon.altText}
                 className={`controls-buttons__image ${
                   icon.playIcon ? "play" : ""
                 }`}
