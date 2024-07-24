@@ -85,19 +85,20 @@ const Podcasts = () => {
   };
 
   return (
-    <div className="podcasts">
+    <section className="podcasts">
       <div className="podcasts__header">
-        <p
+        <h2
           className={`podcasts__header__title ${
             lightMode ? "podcasts-header-title-light" : ""
           }`}
         >
           Podcasts
-        </p>
+        </h2>
         <button
           className={`podcasts__header__button ${
             lightMode ? "podcasts-header-button-light" : ""
           }`}
+          aria-label="View all podcasts"
         >
           View All
         </button>
@@ -108,10 +109,18 @@ const Podcasts = () => {
         <div className="podcasts__cards">
           {data.map((podcast) => {
             return (
-              <div
+              <article
                 key={podcast.title}
                 style={{ backgroundImage: `url(${podcast.img})` }}
                 className="card"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    navigate(`/podcasts/${podcast.id}`);
+                  }
+                }}
+                aria-label={`Go to ${podcast.title} podcast`}
               >
                 <div className="card__status">
                   <div className="card__status__actions">
@@ -119,6 +128,7 @@ const Podcasts = () => {
                       onClick={() => {
                         deleteData(podcast.id);
                       }}
+                      aria-label={`Delete ${podcast.title}`}
                       src={deleteIcon}
                       alt="Delete Icon"
                       className="card__status__actions__img"
@@ -128,6 +138,7 @@ const Podcasts = () => {
                       onClick={() => {
                         navigate(`/podcasts/${podcast.id}`);
                       }}
+                      aria-label={`Edit ${podcast.title}`}
                       alt="Edit Icon"
                       className="card__status__actions__img"
                     />
@@ -157,12 +168,12 @@ const Podcasts = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
