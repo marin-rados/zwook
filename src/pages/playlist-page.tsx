@@ -21,29 +21,29 @@ const PlaylistPage = () => {
   }, []);
 
   return (
-    <div className="playlist-page">
+    <main className={`playlist-page ${lightMode ? "playlist-page-light" : ""}`}>
       {data ? (
-        <div
+        <header
           className="playlist-page-header"
           style={{ backgroundImage: `url(${data.playlistImg})` }}
         >
           <img
             src={data.featuredImg}
-            alt="Image of an artist"
+            alt={`Artist featured in ${data.name} playlist`}
             className="playlist-page-header__image"
           />
           <div className="playlist-page-header__description">
             <p className="playlist-page-header__description__info">Playlist</p>
-            <p className="playlist-page-header__description__title">
+            <h1 className="playlist-page-header__description__title">
               {data.name}
-            </p>
+            </h1>
             <p className="playlist-page-header__description__info">
               {`New release "Impressions" coming ${data.date}`}
             </p>
           </div>
-        </div>
+        </header>
       ) : (
-        <p>error</p>
+        <p role="alert">Error loading playlist</p>
       )}
 
       <table className="tracks">
@@ -155,7 +155,7 @@ const PlaylistPage = () => {
           })}
         </tbody>
       </table>
-    </div>
+    </main>
   );
 };
 
