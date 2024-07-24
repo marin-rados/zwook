@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router";
 import { categoriesdData } from "../data/data";
 import { useColorModeStore } from "../store/store";
 
 const Categories = () => {
   const { lightMode } = useColorModeStore();
+  const navigate = useNavigate();
+
   return (
-    <div className="categories">
+    <section className="categories">
       <div className="categories-header">
         <p
           className={`categories-header__title ${
@@ -17,6 +20,7 @@ const Categories = () => {
           className={`categories-header__button ${
             lightMode ? "categories-header-button-light" : ""
           }`}
+          aria-label="View all categories"
         >
           View All
         </button>
@@ -24,16 +28,25 @@ const Categories = () => {
       <div className="categories-content">
         {categoriesdData.map((category, index) => {
           return (
-            <div
+            <article
               key={index}
               className={`categories-content__card ${
                 lightMode ? "categories-content-card-light" : ""
               }`}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  navigate(`/`);
+                }
+              }}
+              aria-label={`Go to ${category.name} podcast`}
             >
               <img
                 className="categories-content__card__image"
                 src={category.img}
                 alt={`Image of ${category.name}`}
+                aria-label={`Image of ${category.name}`}
               />
               <p
                 className={`categories-content__card__title ${
@@ -42,11 +55,11 @@ const Categories = () => {
               >
                 {category.name}
               </p>
-            </div>
+            </article>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 
