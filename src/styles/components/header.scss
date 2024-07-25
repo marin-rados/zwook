@@ -30,6 +30,15 @@
       &::placeholder {
         color: var(--color-grey-400);
       }
+      @media only screen and (max-width: 950px) {
+        width: 100%;
+      }
+    }
+    @media only screen and (max-width: 950px) {
+      width: 20%;
+    }
+    @media only screen and (max-width: 730px) {
+      border-radius: var(--border-circle);
     }
   }
 }
@@ -118,6 +127,10 @@
   background-color: var(--color-grey-25);
   &__input {
     background-color: var(--color-grey-25);
+    &:focus {
+      color: var(--color-grey-950);
+      outline: none;
+    }
     &::placeholder {
       color: var(--color-grey-500);
     }
